@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="Binned">
-	<schema id="xyz.zateros.Binned" path="/xyz/zateros/Binned/">
+	<schema id="@app_id@" path="@prefix@/">
 		<key name="server-address" type="s">
 			<default>"https://example.com"</default>
     	</key>

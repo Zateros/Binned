@@ -39,7 +39,7 @@ namespace Binned {
 
         public Application() {
             Object(
-                   application_id : "xyz.zateros.Binned",
+                   application_id : Config.APP_ID,
                    flags: ApplicationFlags.NON_UNIQUE
             );
 
@@ -47,7 +47,7 @@ namespace Binned {
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
             Intl.textdomain (Config.GETTEXT_PACKAGE);
 
-            settings = new Settings("xyz.zateros.Binned");
+            settings = new Settings(Config.APP_ID);
 
             submitter = new Submitter();
             settings.bind("server-address", submitter, "server", DEFAULT);
@@ -89,7 +89,7 @@ namespace Binned {
             string[] developers = { "Zateros" };
             var about = new Adw.AboutDialog() {
                 application_name = "Binned",
-                application_icon = "xyz.zateros.Binned",
+                application_icon = Config.APP_ID,
                 developer_name = "Zateros",
                 translator_credits = _("translator-credits"),
                 version = "0.1.0",

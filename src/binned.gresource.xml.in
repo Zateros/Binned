@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/xyz/zateros/Binned">
+  <gresource prefix="/xyz/zateros/Binned/">
     <file preprocess="xml-stripblanks">ui/window.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences.ui</file>
     <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
   </gresource>
-  <gresource prefix="/xyz/zateros/Binned/icons">
+  <gresource prefix="@prefix@/icons">
     <file compressed="true" alias="scalable/status/arrow1-down-symbolic.svg" preprocess="xml-stripblanks">icons/arrow1-down-symbolic.svg</file>
     <file compressed="true" alias="scalable/status/extract-symbolic.svg" preprocess="xml-stripblanks">icons/extract-symbolic.svg</file>
     <file compressed="true" alias="scalable/status/document-text-symbolic.svg" preprocess="xml-stripblanks">icons/document-text-symbolic.svg</file>

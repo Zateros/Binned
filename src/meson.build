@@ -16,9 +16,17 @@ binned_deps = [
   meson.get_compiler('vala').find_library('gio-2.0'),
 ]
 
+resource_conf = configuration_data()
+resource_conf.set('prefix', prefix)
+resource = configure_file(
+    input: 'binned.gresource.xml.in',
+    output: 'binned.gresource.xml',
+    configuration: resource_conf
+  )
+
 binned_sources = gnome.compile_resources(
   'binned-resources',
-  'binned.gresource.xml',
+  resource,
   dependencies: blueprints,
   c_name: 'binned'
 )

@@ -37,7 +37,7 @@ public class Binned.Preferences : Adw.PreferencesDialog {
     private unowned Adw.ComboRow as_expiration_unit;
 
     construct {
-        settings = new Settings ("xyz.zateros.Binned");
+        settings = new Settings (Config.APP_ID);
 
         settings.bind("server-address", server_address, "text", DEFAULT);
         settings.bind("auth-token", auth_token, "text", DEFAULT);

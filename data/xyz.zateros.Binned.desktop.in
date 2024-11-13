@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Binned
 Exec=binned
-Icon=xyz.zateros.Binned
+Icon=@app_id@
 Terminal=false
 Type=Application
 Categories=Utility;
