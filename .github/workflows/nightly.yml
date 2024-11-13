@@ -28,7 +28,7 @@ jobs:
         platforms: arm64
     - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
       with:
-        bundle: palette.flatpak
+        bundle: xyz.zateros.Binned-${{ matrix.arch }}.flatpak
         manifest-path: xyz.zateros.Binned.Devel.json
         cache-key: flatpak-builder-${{ github.sha }}
         arch: ${{ matrix.arch }}
