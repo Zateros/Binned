@@ -29,6 +29,6 @@ jobs:
     - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
       with:
         bundle: palette.flatpak
-        manifest-path: xyz.zateros.Binned.yml
+        manifest-path: xyz.zateros.Binned.Devel.json
         cache-key: flatpak-builder-${{ github.sha }}
         arch: ${{ matrix.arch }}
