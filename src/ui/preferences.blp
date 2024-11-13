@@ -1,0 +1,53 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $BinnedPreferences : Adw.PreferencesDialog {
+  content-height: 360;
+  content-width: 360;
+  width-request: 360;
+  height-request: 360;
+  search-enabled: false;
+  title: _("Preferences");
+
+  Adw.PreferencesPage {
+    Adw.PreferencesGroup {
+      title: _("General");
+
+      Adw.EntryRow server_address {
+        title: _("Server Address");
+        input-purpose: url;
+      }
+
+      Adw.PasswordEntryRow auth_token {
+        title: _("HTTP Authorization token (Optional)");
+        input-purpose: password;
+      }
+    }
+    Adw.PreferencesGroup {
+      title: _("Ease of Use");
+
+      Adw.ExpanderRow auto_submit {
+        title: _("Auto-submit");
+        subtitle: _("Automatically submit dropped item with predefined values");
+        show-enable-switch: true;
+        Adw.SwitchRow as_oneshot_switch {
+          title: _("Oneshot");
+        }
+
+        Adw.EntryRow as_expiration_time {
+          styles [ "numeric" ]
+          title: _("Expiration Time");
+          text: "15";
+          input-purpose: digits;
+        }
+        Adw.ComboRow as_expiration_unit {
+          title: _("Expiration Unit");
+          model: StringList {
+            strings [_("Nanoseconds"), _("Microseconds"), _("Miliseconds"), _("Seconds"), _("Minutes"), _("Hours"), _("Days"), _("Weeks"), _("Months"), _("Years")]
+          };
+          selected: 4;
+        }
+      }
+    }
+  }
+}

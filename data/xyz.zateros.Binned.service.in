@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=xyz.zateros.Binned
+Exec=@bindir@/binned --gapplication-service

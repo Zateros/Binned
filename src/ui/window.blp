@@ -1,0 +1,157 @@
+using Gtk 4.0;
+using Adw 1;
+
+Stack main_stack {
+  vexpand: true;
+  StackPage default_page {
+    name: "default_page";
+    child: Adw.StatusPage{
+      title: _("Drag content here");
+      description: "Files, text or links are accepted";
+      icon-name: "extract-symbolic";
+    };
+  }
+
+  StackPage dragging_page {
+    name: "dragging_page";
+    child: Adw.StatusPage{
+      title: _("Release to drop");
+      icon-name: "arrow1-down-symbolic";
+    };
+  }
+
+  StackPage post_drag_page {
+    name: "post_drag_page";
+    child: Adw.Clamp {
+      maximum-size: 300;
+      tightening-threshold: 200;
+
+      Box {
+        orientation: vertical;
+        valign: center;
+
+        Image representation_image {
+          icon-name: "rich-text-symbolic";
+          margin-bottom: 10;
+          pixel-size: 90;
+        }
+
+        Label file_name {
+          label: "Placeholder name";
+        }
+
+        ListBox boxedlist {
+          selection-mode: none;
+          margin-top: 20;
+          margin-bottom: 10;
+
+          styles ["boxed-list"]
+
+          Adw.ExpanderRow {
+            title: _("Availability");
+            subtitle: _("Change how long until the bin will live");
+
+            Adw.SwitchRow oneshot_switch {
+              title: _("Oneshot");
+            }
+
+            Adw.EntryRow expiration_time {
+              styles [ "numeric" ]
+              title: _("Expiration Time");
+              text: "15";
+              input-purpose: digits;
+            }
+            Adw.ComboRow expiration_unit {
+              title: _("Expiration Unit");
+              model: StringList {
+                strings [_("Nanoseconds"), _("Microseconds"), _("Miliseconds"), _("Seconds"), _("Minutes"), _("Hours"), _("Days"), _("Weeks"), _("Months"), _("Years")]
+              };
+              selected: 4;
+            }
+          }
+        }
+
+        Stack submit_stack {
+          margin-top: 5;
+          margin-bottom: 10;
+          margin-start: 12;
+          margin-end: 12;
+
+          StackPage button {
+            name: "submit_stack_button";
+            child: Button submit_button {
+              styles [
+                "pill"
+              ]
+
+              label: "Submit";
+              halign: center;
+            };
+          }
+
+          StackPage spinner {
+            name: "submit_stack_spinner";
+            child: Adw.Spinner {
+              halign: center;
+              valign: center;
+              width-request: 24;
+              height-request: 24;
+            };
+          }
+        }
+      }
+    };
+  }
+}
+
+template $BinnedWindow: $AdwApplicationWindow {
+  title: _("Binned");
+  default-width: 390;
+  default-height: 390;
+  width-request: 375;
+  height-request: 375;
+
+  content: $AdwToolbarView {
+    [top]
+    $AdwHeaderBar {
+      [start]
+      MenuButton {
+        primary: true;
+        icon-name: "open-menu-symbolic";
+        tooltip-text: _("Main Menu");
+        menu-model: primary_menu;
+      }
+      Button clear_button {
+        icon-name: "cross-large-square-outline-symbolic";
+        visible: false;
+        tooltip-text: _("Clear");
+        styles [
+          "flat"
+        ]
+      }
+    }
+
+    content: Adw.ToastOverlay toast_overlay {
+      child: main_stack;
+    };
+  };
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _("_Preferences");
+      action: "app.preferences";
+    }
+
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+
+    item {
+      label: _("_About Binned");
+      action: "app.about";
+    }
+  }
+}

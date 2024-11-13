@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="Binned">
+	<schema id="xyz.zateros.Binned" path="/xyz/zateros/Binned/">
+		<key name="server-address" type="s">
+			<default>"https://example.com"</default>
+    	</key>
+		<key name="auth-token" type="s">
+			<default>""</default>
+    	</key>
+		<key name="auto-submit" type="b">
+			<default>false</default>
+    	</key>
+		<key name="auto-submit-oneshot" type="b">
+			<default>false</default>
+    	</key>
+		<key name="auto-submit-expiry" type="s">
+			<default>"15"</default>
+    	</key>
+		<key name="auto-submit-unit" type="i">
+			<default>4</default>
+    	</key>
+	</schema>
+</schemalist>

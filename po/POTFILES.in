@@ -1,0 +1,9 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/xyz.zateros.Binned.desktop.in
+data/xyz.zateros.Binned.metainfo.xml.in
+data/xyz.zateros.Binned.gschema.xml
+src/main.vala
+src/window.vala
+src/window.blp
+src/preferences.blp
