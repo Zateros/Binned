@@ -44,16 +44,16 @@
 	    }
 	  ]
 	},
-        {
-            "name" : "binned",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "file:///var/home/zateros/Dev/GnomeProjects"
-                }
-            ]
-        }
+    {
+        "name" : "binned",
+        "builddir" : true,
+        "buildsystem" : "meson",
+        "sources" : [
+            {
+                "type" : "git",
+                "url" : "."
+            }
+        ]
+    }
     ]
 }
