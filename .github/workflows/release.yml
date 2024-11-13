@@ -53,4 +53,4 @@ jobs:
             xyz.zateros.Binned-x86_64.flatpak
             xyz.zateros.Binned-aarch64.flatpak
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
