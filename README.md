@@ -17,7 +17,7 @@
     >
 </picture>
 
-An easy-to-use app for uploading pastes to a [RustyPaste](https://github.com/orhun/rustypaste) instance. \
+An (almost complete) easy-to-use app for uploading pastes to a [RustyPaste](https://github.com/orhun/rustypaste) instance. \
 Written in [Vala](https://vala.dev/) with [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/)
 
 ## Features
@@ -26,6 +26,8 @@ Written in [Vala](https://vala.dev/) with [libadwaita](https://gnome.pages.gitla
 - Oneshot bin
 - Dropped text support (both `text/plain` and URLs)
 - Auto-submit with predefined availablity settings 
+- Set custom filename for upload - WIP
+- More to come
 
 ## Installation
 ## Translating
