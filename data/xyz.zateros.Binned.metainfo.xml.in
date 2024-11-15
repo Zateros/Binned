@@ -5,7 +5,7 @@
   <project_license>GPL-3.0-or-later</project_license>
 
   <name>Binned</name>
-  <summary>Keep the summary shorter, between 10 and 35 characters</summary>
+  <summary>An easy-to-use application to submit bins to a RustyPaste instance!</summary>
   <description>
     <p>No description</p>
   </description>
@@ -17,11 +17,11 @@
   <!-- Requered: Should be a link to the upstream homepage for the component -->
   <url type="homepage">https://zateros.xyz/</url>
   <!-- Recommended: It is highly recommended for open-source projects to display the source code repository -->
-  <url type="vcs-browser">https://example.org/repository</url>
+  <url type="vcs-browser">https://github.com/Zateros/Binned</url>
   <!-- Should point to the software's bug tracking system, for users to report new bugs -->
-  <url type="bugtracker">https://example.org/issues</url>
+  <url type="bugtracker">https://github.com/Zateros/Binned/issues</url>
   <!-- URLs of this type should point to a webpage where users can submit or modify translations of the upstream project -->
-  <url type="translate">https://example.org/translate</url>
+  <url type="translate"></url>
   <!-- Should link a FAQ page for this software, to answer some of the most-asked questions in detail -->
   <url type="faq"></url>
   <!--Sould provide a web link to an online user's reference, a software manual or help page -->
@@ -48,23 +48,18 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://example.org/example1.png</image>
-      <caption>A caption</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://example.org/example2.png</image>
-      <caption>A caption</caption>
+      <image>https://github.com/Zateros/Binned/blob/main/media/screenshot.png</image>
+      <caption>Screenshot of the different screens of the app</caption>
     </screenshot>
   </screenshots>
 
   <releases>
-    <release version="1.0.1" date="2024-01-18">
-      <url type="details">https://example.org/changelog.html#version_1.0.1</url>
+    <release version="0.1.0" date="2024-11-15">
+      <url type="details">https://github.com/Zateros/Binned/release/0.1.0</url>
       <description translate="no">
-        <p>Release description</p>
+        <p>Release 0.1.0</p>
         <ul>
-          <li>List of changes</li>
-          <li>List of changes</li>
+          <li>Initial release of the app!</li>
         </ul>
       </description>
     </release>
