@@ -6,7 +6,7 @@
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.vala"
     ],
-    "command" : "binned",
+    "command" : "xyz.zateros.Binned",
     "finish-args" : [
         "--share=network",
         "--share=ipc",
