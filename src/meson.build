@@ -38,7 +38,7 @@ binned_sources += files(
   'networking/submit.vala',
 )
 
-executable('binned', binned_sources,
+executable(meson.project_name(), binned_sources,
   vala_args: [
     '--gresourcesdir=src/',
   ],

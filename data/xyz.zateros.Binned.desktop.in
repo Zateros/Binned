@@ -1,10 +1,10 @@
 [Desktop Entry]
 Name=Binned
-Exec=binned
+Exec=xyz.zateros.Binned %u
 Icon=@app_id@
 Terminal=false
 Type=Application
 Categories=Utility;
 Keywords=GTK;
 StartupNotify=true
-DBusActivatable=true
+DBusActivatable=false
