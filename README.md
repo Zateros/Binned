@@ -25,7 +25,7 @@ Written in [Vala](https://vala.dev/) with [libadwaita](https://gnome.pages.gitla
 - Customizable expiration time
 - Oneshot bin
 - Dropped text support (both `text/plain` and URLs)
-- Auto-submit with predefined availablity settings 
+- Auto-submit with predefined availability settings 
 - Set custom filename for upload - WIP
 - More to come
 
