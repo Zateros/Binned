@@ -42,6 +42,8 @@ public class Binned.Window : Adw.ApplicationWindow {
     private unowned Adw.EntryRow expiration_time;
     [GtkChild]
     private unowned Adw.ComboRow expiration_unit;
+    [GtkChild]
+    private unowned Adw.ExpanderRow availability_expander;
 
     public Window (Gtk.Application app) {
         Object (application: app);
@@ -82,6 +84,7 @@ public class Binned.Window : Adw.ApplicationWindow {
     
     public void clear_dropped() {
         on_clear();
+        availability_expander.set_expanded(false);
         main_stack.set_visible_child_full("default_page", Gtk.StackTransitionType.CROSSFADE);
         clear_button.visible = false;
     }
