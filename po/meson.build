@@ -1,1 +1,6 @@
-i18n.gettext('binned', preset: 'glib')
+i18n.gettext(meson.project_name(),
+  args: [
+    '--directory=' + meson.project_source_root(),
+    '--from-code=UTF-8'
+  ],
+  preset: 'glib')

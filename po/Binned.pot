@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Binned package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Binned 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-18 19:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/xyz.zateros.Binned.desktop.in:3
+#: data/xyz.zateros.Binned.metainfo.xml.in:7 src/ui/window.blp:116
+msgid "Binned"
+msgstr ""
+
+#: data/xyz.zateros.Binned.desktop.in:6
+#: data/xyz.zateros.Binned.metainfo.xml.in:8
+msgid "An easy-to-use application to submit bins to a RustyPaste instance!"
+msgstr ""
+
+#: data/xyz.zateros.Binned.desktop.in:10
+msgid "Paste;Binned;Bin"
+msgstr ""
+
+#: data/xyz.zateros.Binned.metainfo.xml.in:10
+msgid "No description"
+msgstr ""
+
+#: data/xyz.zateros.Binned.metainfo.xml.in:14
+msgid "Zateros"
+msgstr ""
+
+#: data/xyz.zateros.Binned.metainfo.xml.in:38
+msgid "Screenshot of the different screens of the app"
+msgstr ""
+
+#: src/application.vala:150
+msgid "translator-credits"
+msgstr ""
+
+#: src/application.vala:188
+msgid "Unknown object"
+msgstr ""
+
+#: src/application.vala:194
+msgid "Opened"
+msgstr ""
+
+#: src/application.vala:248
+msgid "Thread support not detected, cannot continue!"
+msgstr ""
+
+#: src/application.vala:280
+msgid "Success! Copied url to clipboard"
+msgstr ""
+
+#: src/window.vala:113
+msgid "Unknown error happened, during file dialog opening"
+msgstr ""
+
+#: src/ui/window.blp:9
+msgid "Drag content here"
+msgstr ""
+
+#: src/ui/window.blp:10
+msgid "Files, text or links are accepted"
+msgstr ""
+
+#: src/ui/window.blp:18
+msgid "Release to drop"
+msgstr ""
+
+#: src/ui/window.blp:51
+msgid "Availability"
+msgstr ""
+
+#: src/ui/window.blp:52
+msgid "Change how long the bin will be available"
+msgstr ""
+
+#: src/ui/window.blp:55 src/ui/preferences.blp:34
+msgid "Oneshot"
+msgstr ""
+
+#: src/ui/window.blp:60 src/ui/preferences.blp:39
+msgid "Expiration Time"
+msgstr ""
+
+#: src/ui/window.blp:67 src/ui/preferences.blp:44
+msgid "Expiration Unit"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Nanoseconds"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Microseconds"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Miliseconds"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Seconds"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Minutes"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Hours"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Days"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Weeks"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Months"
+msgstr ""
+
+#: src/ui/window.blp:69 src/ui/preferences.blp:46
+msgid "Years"
+msgstr ""
+
+#: src/ui/window.blp:76
+msgid "Shortname"
+msgstr ""
+
+#: src/ui/window.blp:95
+msgid "Submit"
+msgstr ""
+
+#: src/ui/window.blp:129
+msgid "Main Menu"
+msgstr ""
+
+#: src/ui/window.blp:134
+msgid "Open file"
+msgstr ""
+
+#: src/ui/window.blp:142
+msgid "Clear"
+msgstr ""
+
+#: src/ui/window.blp:158
+msgid "_Preferences"
+msgstr ""
+
+#: src/ui/window.blp:163
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/ui/window.blp:168
+msgid "_About Binned"
+msgstr ""
+
+#: src/ui/help-overlay.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: src/ui/help-overlay.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: src/ui/help-overlay.blp:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: src/ui/preferences.blp:10
+msgid "Preferences"
+msgstr ""
+
+#: src/ui/preferences.blp:14
+msgid "General"
+msgstr ""
+
+#: src/ui/preferences.blp:17
+msgid "Server Address"
+msgstr ""
+
+#: src/ui/preferences.blp:22
+msgid "HTTP Authorization token (Optional)"
+msgstr ""
+
+#: src/ui/preferences.blp:27
+msgid "Ease of Use"
+msgstr ""
+
+#: src/ui/preferences.blp:30
+msgid "Auto-submit"
+msgstr ""
+
+#: src/ui/preferences.blp:31
+msgid "Automatically submit dropped item with predefined values"
+msgstr ""

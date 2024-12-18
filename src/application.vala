@@ -110,25 +110,14 @@ namespace Binned {
 
             if (value_type == typeof (Gdk.FileList)) {
                 GLib.File file = ((Gdk.FileList) value).get_files().nth_data(0);
-                string content_type;
 
                 try {
-                    content_type = file.query_info("standard::content-type", GLib.FileQueryInfoFlags.NONE).get_content_type();
-                } catch (GLib.Error e) {
-                    win.show_toast(@"Something wrong happened during file info query: $(e.message)");
+                    process_file(file);
+                    win.file_opened = true;
+                    return true;
+                } catch {
                     return false;
                 }
-
-                if (!content_type.contains("text") && !content_type.contains("image")) {
-                    win.show_toast(@"“$content_type“ file type is not allowed.");
-                    return false;
-                }
-
-                file_path = file.get_path();
-                dropped = DroppedType.File;
-                win.set_filename(file.get_basename());
-
-                if (content_type.contains("image")) { win.set_image(file_path); } else { win.set_icon("rich-text-symbolic"); }
             } else if (value_type == typeof (string)) {
                 text = (string) value;
                 dropped = DroppedType.Text;
@@ -139,12 +128,12 @@ namespace Binned {
                 win.set_filename(display);
                 if(url_match.match(text)) win.set_icon("globe-alt2-symbolic"); else win.set_icon("document-text-symbolic");
             } else {
-                win.show_toast("Unknown object");
+                win.show_toast(_("Unknown object"));
                 return false;
             }
             bool auto_submit = settings.get_boolean("auto-submit");
             if(!auto_submit) {
-                win.show_toast("Opened");
+                win.show_toast(_("Opened"));
                 return true;
             }else {
                 bool oneshot = settings.get_boolean("auto-submit-oneshot");
@@ -161,11 +150,11 @@ namespace Binned {
 
         private async void on_submit(bool oneshot) {
             if(!/^\d+$/.match(time)) {
-                win.show_toast(@"Invalid time: $time");
+                win.show_toast(_(@"Invalid time: $time"));
                 return;
             }
             if (!Thread.supported()) {
-                win.show_toast(@"Thread support not detected, cannot continue!");
+                win.show_toast(_("Thread support not detected, cannot continue!"));
                 return;
             }
             string response = "";
@@ -189,10 +178,11 @@ namespace Binned {
 
             if(url_match.match(response)) {
                 clipboard.set_text(response);
-                win.show_toast(@"Success! Copied url to clipboard");
+                win.show_toast(_("Success! Copied url to clipboard"));
                 win.clear_dropped();
             }
-            else { win.show_toast(@"Error while submitting: $response"); }
+            else { win.show_toast(_(@"Error while submitting: $response")); }
+        }
         }
 
         private void on_clear() {

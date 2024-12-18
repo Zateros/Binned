@@ -7,7 +7,7 @@ Stack main_stack {
     name: "default_page";
     child: Adw.StatusPage{
       title: _("Drag content here");
-      description: "Files, text or links are accepted";
+      description: _("Files, text or links are accepted");
       icon-name: "extract-symbolic";
     };
   }
@@ -36,7 +36,7 @@ Stack main_stack {
           pixel-size: 90;
         }
 
-        Label file_name {
+        Label display_name {
           label: "Placeholder name";
         }
 
@@ -49,7 +49,7 @@ Stack main_stack {
 
           Adw.ExpanderRow {
             title: _("Availability");
-            subtitle: _("Change how long until the bin will live");
+            subtitle: _("Change how long the bin will be available");
 
             Adw.SwitchRow oneshot_switch {
               title: _("Oneshot");
@@ -60,7 +60,9 @@ Stack main_stack {
               title: _("Expiration Time");
               text: "15";
               input-purpose: digits;
+              max-length: 6;
             }
+
             Adw.ComboRow expiration_unit {
               title: _("Expiration Unit");
               model: StringList {
@@ -84,7 +86,7 @@ Stack main_stack {
                 "pill"
               ]
 
-              label: "Submit";
+              label: _("Submit");
               halign: center;
             };
           }

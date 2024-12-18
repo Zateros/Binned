@@ -37,7 +37,7 @@ public class Binned.Window : Adw.ApplicationWindow {
     [GtkChild]
     private unowned Gtk.Image representation_image;
     [GtkChild]
-    private unowned Gtk.Label file_name;
+    private unowned Gtk.Label display_name;
     [GtkChild]
     private unowned Adw.EntryRow expiration_time;
     [GtkChild]

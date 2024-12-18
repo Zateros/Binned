@@ -2,9 +2,10 @@
 Name=Binned
 Exec=xyz.zateros.Binned %u
 Icon=@app_id@
+Comment=An easy-to-use application to submit bins to a RustyPaste instance!
 Terminal=false
 Type=Application
-Categories=Utility;
-Keywords=GTK;
+Categories=GTK;Utility
+Keywords=Paste;Binned;Bin
 StartupNotify=true
 DBusActivatable=false
