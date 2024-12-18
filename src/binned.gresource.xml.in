@@ -12,5 +12,6 @@
     <file compressed="true" alias="scalable/status/rich-text-symbolic.svg" preprocess="xml-stripblanks">icons/rich-text-symbolic.svg</file>
     <file compressed="true" alias="scalable/status/cross-large-square-outline-symbolic.svg" preprocess="xml-stripblanks">icons/cross-large-square-outline-symbolic.svg</file>
     <file compressed="true" alias="scalable/status/globe-alt2-symbolic.svg" preprocess="xml-stripblanks">icons/globe-alt2-symbolic.svg</file>
+    <file compressed="true" alias="scalable/status/package-x-generic-symbolic.svg" preprocess="xml-stripblanks">icons/package-x-generic-symbolic.svg</file>
   </gresource>
 </gresources>

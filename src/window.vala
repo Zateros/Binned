@@ -33,6 +33,8 @@ public class Binned.Window : Adw.ApplicationWindow {
     [GtkChild]
     private unowned Gtk.Button clear_button;
     [GtkChild]
+    private unowned Gtk.Button open_file;
+    [GtkChild]
     private unowned Adw.ToastOverlay toast_overlay;
     [GtkChild]
     private unowned Gtk.Image representation_image;
@@ -40,6 +42,8 @@ public class Binned.Window : Adw.ApplicationWindow {
     private unowned Gtk.Label display_name;
     [GtkChild]
     private unowned Adw.EntryRow expiration_time;
+    [GtkChild]
+    private unowned Adw.EntryRow shortname;
     [GtkChild]
     private unowned Adw.ComboRow expiration_unit;
     [GtkChild]
@@ -58,22 +62,27 @@ public class Binned.Window : Adw.ApplicationWindow {
         ((Gtk.Widget) this).add_controller(drop_target);
 
         submit_button.clicked.connect(submit_button_pressed);
-
+        open_file.clicked.connect(open_file_pressed);
         clear_button.clicked.connect(clear_dropped);
 
         expiration_time.changed.connect(validate_expiration_time);
         expiration_unit.notify["selected-item"].connect(eunit_changed);
+        shortname.changed.connect(shortname_changed);
     }
 
     public signal bool on_drop(Gtk.DropTarget self, Value value);
     public signal void on_submit(bool oneshot);
+    public signal bool on_file_open(File file);
     public signal void on_clear();
     public signal void on_etime_changed(string value);
     public signal void on_eunit_changed(string value);
+    public signal void on_shortname_changed(string value);
+
+    public bool file_opened = false;
 
     public void set_image(string path) { representation_image.set_from_file(path); }
     public void set_icon(string icon) { representation_image.set_from_icon_name(icon); }
-    public void set_filename(string name) { file_name.label = name; }
+    public void set_filename(string name) { display_name.label = name; }
     public string get_expiration_unit() { return ((Gtk.StringObject)expiration_unit.selected_item).get_string(); }
 
     public void show_toast(string message) {
@@ -92,6 +101,19 @@ public class Binned.Window : Adw.ApplicationWindow {
     public void show_submit_spinner() { submit_stack.set_visible_child_full("submit_stack_spinner", Gtk.StackTransitionType.CROSSFADE); }
     public void show_submit_button() { submit_stack.set_visible_child_full("submit_stack_button", Gtk.StackTransitionType.CROSSFADE); }
     
+    private async void open_file_pressed() {
+        Gtk.FileDialog fileDialog = new Gtk.FileDialog();
+        try {
+            File? file = yield fileDialog.open(this, null);
+            if (file != null && on_file_open(file)) {
+                show_submit_page();
+                file_opened = true;
+            }
+        }catch {
+            show_toast(_("Unknown error happened, during file dialog opening"));
+        }
+    }
+
     private void submit_button_pressed() { on_submit(oneshot_switch.active); }
 
     private Gdk.DragAction drop_target_enter(Gtk.DropTarget self,
@@ -102,13 +124,12 @@ public class Binned.Window : Adw.ApplicationWindow {
     }
 
     private void drop_target_leave(Gtk.DropTarget self) {
-        main_stack.set_visible_child_full("default_page", Gtk.StackTransitionType.CROSSFADE);
+        main_stack.set_visible_child_full(file_opened ? "post_drag_page" : "default_page", Gtk.StackTransitionType.CROSSFADE);
     }
 
     private bool drop_target_drop(Gtk.DropTarget self, Value value, double x, double y) {
         if(!on_drop(self, value)) return false;
-        clear_button.visible = true;
-        main_stack.set_visible_child_full("post_drag_page", Gtk.StackTransitionType.CROSSFADE);
+        show_submit_page();
         return true;
     }
 
@@ -121,5 +142,14 @@ public class Binned.Window : Adw.ApplicationWindow {
         }else {
             expiration_time.set_css_classes({"numeric"});
         }
+    }
+
+    private void show_submit_page() {
+        clear_button.visible = true;
+        main_stack.set_visible_child_full("post_drag_page", Gtk.StackTransitionType.CROSSFADE);
+    }
+
+    private void shortname_changed() {
+        on_shortname_changed(shortname.text);
     }
 }

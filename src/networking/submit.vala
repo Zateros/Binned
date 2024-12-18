@@ -22,21 +22,27 @@ namespace Binned{
 
         private bool running_already = false;
 
-        public async string send_text_async(string text, string etime, string eunit, bool oneshot) {
+        public async string send_text_async(string text, string etime, string eunit, string? shortname, bool oneshot) {
             if(!running_already) {
                 start();
                 running_already = true;
             }
             FileIOStream iostream;
-            File tmp = File.new_tmp ("rpaste_send_tmp_XXXXXX.txt", out iostream);
-            OutputStream ostream = iostream.output_stream;
-            DataOutputStream dstream = new DataOutputStream(ostream);
-            dstream.put_string(text);
-            dstream.close();
-            return yield send_file_async(tmp.get_path(), "text/plain", etime, eunit, oneshot);
+            File tmp;
+            try {
+                tmp = File.new_tmp ("rpaste_send_tmp_XXXXXX.txt", out iostream);
+                OutputStream ostream = iostream.output_stream;
+                DataOutputStream dstream = new DataOutputStream(ostream);
+                dstream.put_string(text);
+                dstream.close();
+            }catch (Error e) {
+                return e.message;
+            }
+
+            return yield send_file_async(tmp.get_path(), "text/plain", etime, eunit, shortname, oneshot);
         }
 
-        public async string send_url_async(string dest, string etime, string eunit, bool oneshot) {
+        public async string send_url_async(string dest, string etime, string eunit, string? shortname, bool oneshot) {
             if(!running_already) {
                 start();
                 running_already = true;
@@ -55,10 +61,11 @@ namespace Binned{
             }
 
             multipart.append_form_string(header, dest);
-
+            
             Message message = new Message.from_multipart(server, multipart);
-
+            
             if(auth != null) message.request_headers.append ("Authorization", auth);
+            if(shortname != null && shortname != "") message.request_headers.append("filename", shortname);
             string unit;
             switch (eunit) {
                 case "Nanosecond": unit = "ns"; break;
@@ -80,7 +87,7 @@ namespace Binned{
             }
         }
 
-        public async string send_file_async(string path, string mimetype, string etime, string eunit, bool oneshot) {
+        public async string send_file_async(string path, string mimetype, string etime, string eunit, string? shortname, bool oneshot) {
             if(!running_already) {
                 start();
                 running_already = true;
@@ -98,9 +105,10 @@ namespace Binned{
                 return e.message;
             }
             multipart.append_form_file (oneshot ? "oneshot" : "file", path, mimetype, file_content);
-
+            
             Message message = new Message.from_multipart(server, multipart);
             if(auth != null) message.request_headers.append ("Authorization", auth);
+            if(shortname != null && shortname != "") message.request_headers.append("filename", shortname);
             string unit;
             switch (eunit) {
                 case "Nanosecond": unit = "ns"; break;

@@ -71,6 +71,12 @@ Stack main_stack {
               selected: 4;
             }
           }
+
+          Adw.EntryRow shortname {
+            title: _("Shortname");
+            text: "";
+            max-length: 30;
+          }
         }
 
         Stack submit_stack {
@@ -122,6 +128,13 @@ template $BinnedWindow: $AdwApplicationWindow {
         icon-name: "open-menu-symbolic";
         tooltip-text: _("Main Menu");
         menu-model: primary_menu;
+      }
+      Button open_file {
+        icon-name: "document-open-symbolic";
+        tooltip-text: _("Open file");
+        styles [
+          "flat"
+        ]
       }
       Button clear_button {
         icon-name: "cross-large-square-outline-symbolic";
